@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forms de Cadastro</title>
+
+  <style>
+    /*Seletor universal para estilizar todos elementos do html*/
+    /* Faz padding e border não aumentar o tamanho do elemento */
+    * {
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Body vai centralizar o formulario */
+    body {
+      background-color: #f0f0f0;
+
+      /* Usando display flex para centralizar  */
+      display: flex;
+      justify-content: center; 
+      align-items: center;    
+      padding: 20px;
+    }
+
+    /* CSS do formulario, max-width para ter uma largura maxima e não ficar gigante */
+    form {
+      background-color: #ffffff;
+      padding: 30px;
+      width: 100%;
+      max-width: 500px; 
+      border-radius: 10px;
+      box-shadow: 0 20px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* h1 do titulo */
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* Estilizando todos os campos ao mesmo tempo, label e input junto  */
+    .campo {
+      display: flex;
+      flex-direction: column; 
+      margin-bottom: 15px;   
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    /*Css input,select,textarea*/
+    input,select,textarea {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 10px;
+      transition: border-color 0.2s; 
+    }
+
+    /*Efeito focus*/
+    input:focus,select:focus,textarea:focus {
+      border-color: #4a90e2;
+    }
+
+    /* Radio e checkbox */
+    .grupo-opcoes {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 10px;       
+      margin-top: 5px;
+    }
+
+    .grupo-opcoes label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    /*Css do botão*/
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #4a90e2;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px; 
+      cursor: pointer;
+      transition: background-color 0.2s; /* animação suave no hover */
+    }
+
+    /*Efeito de hover*/
+    button:hover {
+      background-color: #357abd; 
+    }
+
+    /*Responsividade*/
+    /* Padding vai reduzir em telas menores que 480px */
+    @media (max-width: 480px) {
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <h1>Cadastro</h1>
+
+    <!-- Campo do nome -->
+    <div class="campo">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Escreva seu nome" />
+    </div>
+
+    <!-- Campo do email -->
+    <div class="campo">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="sla@exemplo.com" />
+    </div>
+
+    <!-- Campo da senha -->
+    <div class="campo">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" />
+    </div>
+
+    <!-- Campo de data -->
+    <div class="campo">
+      <label for="nascimento">Data de nascimento</label>
+      <input type="date" id="nascimento" name="nascimento" />
+    </div>
+
+    <!-- Campo: de curso, select faz uma lista suspensa onde como o nome diz você seleciona uma opção -->
+    <div class="campo">
+      <label for="curso">Curso</label>
+      <select id="curso" name="curso">
+        <option value="">Selecione...</option>
+        <option value="comp">Ciência da computação</option>
+        <option value="Eng">Engenharia de software</option>
+        <option value="ads">ADS</option>
+        <option value="outro">Outro</option>
+      </select>
+    </div>
+
+    <!-- Campo de genero, tipo radio só pode ter uma escolha -->
+    <div class="campo">
+      <label>Sexo</label>
+      <div class="grupo-opcoes">
+        <label><input type="radio" name="genero" value="m" /> Masculino</label>
+        <label><input type="radio" name="genero" value="f" /> Feminino</label>
+        <label><input type="radio" name="genero" value="o" /> Outro</label>
+      </div>
+    </div>
+
+    <!-- Campo de interesse, tipo checkbox para ter multipla escolha -->
+    <div class="campo">
+      <label>Interesses</label>
+      <div class="grupo-opcoes">
+        <label><input type="checkbox" name="interesse" value="web" /> Web</label>
+        <label><input type="checkbox" name="interesse" value="mobile" /> Mobile</label>
+        <label><input type="checkbox" name="interesse" value="ia" /> IA</label>
+        <label><input type="checkbox" name="interesse" value="dados" /> Dados</label>
+        <label><input type="checkbox" name="interesse" value="jogos" /> Jogos</label>
+      </div>
+    </div>
+
+    <!-- Campo de comentario, textarea = texto longo -->
+    <div class="campo">
+      <label for="comentarios">Comentários</label>
+      <textarea id="comentarios" name="comentarios" placeholder="Slv..."></textarea>
+    </div>
+
+    <!-- Campo de upload de fotos -->
+    <div class="campo">
+      <label for="foto">Upload de foto</label>
+      <input type="file" id="foto" name="foto" accept="image/*" />
+    </div>
+
+    <!-- Botão de enviar -->
+    <button type="submit">Enviar</button>
+  </form>
+
+</body>
+</html>
